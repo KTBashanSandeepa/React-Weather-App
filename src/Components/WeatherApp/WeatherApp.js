@@ -18,7 +18,7 @@ const WeatherApp = () => {
         if(element[0].value===""){
             return 0;
         }
-        let url = `https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&units=Metric&appid=${api_key}`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
 
         let response = await fetch (url);
         let data = await response.json();
@@ -28,7 +28,7 @@ const WeatherApp = () => {
         const temprature = document.getElementsByClassName("weather-temp")
         const location = document.getElementsByClassName("weather-location")
     
-        //humidity[0].innerHTML = data.main.humidity;
+        humidity[0].innerHTML = data.main.humidity;
         wind[0].innerHTML = data.wind.speed;
         temprature[0].innerHTML =  data.main.temp;
         location[0].innerHTML = data.name;
