@@ -10,17 +10,26 @@ import humidity_icon from '../Assests/Humidity.png';
 import sun_icon from '../Assests/Sun.png';
 
 const WeatherApp = () => {
+
+    let api_key = "2b9c1bdaa597281fbdf0613b7b6f8b7f";
+
+    const search = () => {
+        const element = document.getElementsByClassName("cityInput")
+        if(element[0].value===""){
+            return 0;
+        }
+    }
   return (
     <div className='container'>
       <div className="top-bar">
         <input type='text' className='cityInput' placeholder='Search City'></input>
-        <div className="search-icon">
+        <div className="search-icon" onClick={()=>{search()}}>
             <img src={search_icon} alt=''/>
         </div>
       </div>
 
       <div className="weather-image">
-        <img src={cloud_icon} alt=''/>
+        <img src={cloud_icon} alt='' className='clout_icon'/>
       </div>
 
       <div className='content'>
@@ -29,7 +38,7 @@ const WeatherApp = () => {
             <div className="weather-location">London</div>
             
             <div className="data-container">
-                
+
                 <div className="element">
                     <img src={humidity_icon} alt="" className="icon" />
                     <div className="data">
